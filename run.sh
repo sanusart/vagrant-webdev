@@ -1,15 +1,21 @@
 #!/bin/bash
 
 # Update package source list
-sudo apt-get update --fix-missing
+sudo apt-get update
 
 # install essential packages
-sudo apt-get install -y wget ruby1.9.1 ruby1.9.1-dev curl git openssh-server unzip python-software-properties build-essential
+sudo apt-get install -y wget ruby1.9.1 ruby1.9.1-dev curl openssh-server unzip python-software-properties build-essential
 sudo ln -svf /usr/bin/ruby1.9.1 /etc/alternatives/ruby
+
+# git (newer)
+sudo add-apt-repository -y ppa:git-core/ppa
+sudo apt-get update
+sudo apt-get -y install git
 
 # apache
 sudo apt-get install -y apache2
 sudo a2enmod rewrite
+sudo find /etc/apache2/envvars -type f -exec sed -i 's/www-data/vagrant/g' {} \;
 sudo service apache2 reload
 
 # php
@@ -52,12 +58,11 @@ source /home/vagrant/.bashrc
 # clone git repo's
 mkdir /vagrant/conf/git/clones && cd /vagrant/conf/git/clones
 cp /vagrant/conf/git/git.sh .
-sh ./git.sh
-rm ./git.sh
+sh ./git.sh && rm ./git.sh
 sudo mv * /var/www/
+cd .. && rm -rf /vagrant/conf/git/clones
 
 sudo chown -R vagrant:vagrant /var/www
-
 
 cat <<End-of-msg
 

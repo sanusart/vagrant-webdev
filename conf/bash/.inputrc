@@ -1,0 +1,8 @@
+"\e[5~": history-search-backward
+"\e[6~": history-search-forward
+
+# Make it show more useful info.
+set completion-ignore-case on
+set visible-stats on
+set show-all-if-ambiguous on
+set mark-symlinked-directories on

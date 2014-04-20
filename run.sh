@@ -7,7 +7,8 @@ MYSQL_PASSWORD="vagrant"
 
 INSTALL_BASE="wget make curl openssh-server unzip python-software-properties build-essential"
 INSTALL_TOOLS_NODEJS="yo grunt-cli bower gulp"
-INSTALL_TOOLS_RUBY_GEM="ruby1.9.1 ruby1.9.1-dev compass sass bundler github-pages"
+INSTALL_TOOLS_RUBY="ruby1.9.1 ruby1.9.1-dev"
+INSTALL_TOOLS_RUBY_GEM="compass sass bundler github-pages"
 INSTALL_PHP="php5 php5-dev php5-curl php5-mcrypt php-pear php5-memcache php5-memcached php5-mysqlnd php5-gd php-apc"
 INSTALL_PHP_PECL="mongo xdebug"
 
@@ -20,7 +21,6 @@ sudo apt-get update $APT_GET_PARAMS
 
 # install essential packages
 sudo apt-get install $APT_GET_PARAMS $INSTALL_BASE
-sudo ln -svf /usr/bin/ruby1.9.1 /etc/alternatives/ruby
 
 echo -e "\n\n"
 echo -e "\e[44m  \e[0m Installing newer git"
@@ -88,7 +88,9 @@ echo -e "\n\n"
 echo -e "\e[44m  \e[0m Installing Ruby Gem based tools (no docs)"
 echo -e "\n\n"
 
-# gems
+# Ruby & gems
+sudo apt-get install $APT_GET_PARAMS $INSTALL_TOOLS_RUBY
+sudo ln -svf /usr/bin/ruby1.9.1 /etc/alternatives/ruby
 sudo gem install $INSTALL_TOOLS_RUBY_GEM --no-ri --no-rdoc
 
 echo -e "\n\n"

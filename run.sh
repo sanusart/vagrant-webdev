@@ -5,7 +5,7 @@ USER_HOME="/home/vagrant/"
 APT_GET_PARAMS="-y"
 MYSQL_PASSWORD="vagrant"
 
-INSTALL_BASE="wget make curl openssh-server unzip python-software-properties build-essential"
+INSTALL_BASE="wget make curl tofrodos openssh-server unzip python-software-properties build-essential"
 INSTALL_TOOLS_NODEJS="yo grunt-cli bower gulp"
 INSTALL_TOOLS_RUBY="ruby1.9.1 ruby1.9.1-dev"
 INSTALL_TOOLS_RUBY_GEM="compass sass bundler github-pages"
@@ -106,6 +106,7 @@ echo -e "\n\n"
 
 # .bashrc and a-like
 cp /vagrant/conf/bash/.* $USER_HOME/
+fromdos $USER_HOME/.inputrc $USER_HOME/.profile $USER_HOME/.bash*
 source $USER_HOME/.bashrc
 
 echo -e "\n\n"

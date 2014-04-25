@@ -127,7 +127,7 @@ cd .. && rm -rf /vagrant/conf/git/clones
 
 sudo chown -R vagrant:vagrant /var/www
 sudo cp -rv /var/www /vagrant/www
-sudo rm -rf /var/www && ln -s /vagrant/www /var/www
+sudo rm -rf /var/www && ln -s /vagrant/www /var
 
 function tools_nodejs {
 	IFS=' ' read -a node_tools_array <<< $INSTALL_TOOLS_NODEJS

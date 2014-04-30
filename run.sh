@@ -160,7 +160,7 @@ cat <<End-of-msg
  Installed LAMP:
 ============================================
 
-    http://localhost:8080
+    http://192.168.33.33/
 
     MySQL:
     USER: root
@@ -171,6 +171,7 @@ cat <<End-of-msg
     user/group: vagrant:vagrant
 
     phpMyAdmin:
+	http://192.168.33.33/phpmyadmin
     USER: root
     PASS: ${MYSQL_PASSWORD}
 

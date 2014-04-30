@@ -2,14 +2,13 @@
 
 Web development (LAMP, nodejs, grunt jekyll etc.) vagrant VM using "precise64" as base
 
-
 ## Basic configurations
 
 Components and basic configurations can be configured on top of `run.sh` file
 
 ## Installing LAMP:
 
-`http://localhost:8080`
+`http://192.168.33.33`
 
 ### MySQL:
 
@@ -25,10 +24,11 @@ user/group: vagrant/vagrant
 
 ### phpMyAdmin:
 
+http://192.168.33.33/phpmyadmin
+
 USER: root
 
 PASS: vagrant
-
 
 ## Also installing:
 
